@@ -4,7 +4,9 @@
   padding: 2rem;
   text-align: center;
 }
-
+body {
+  padding-top: 10px; /* Ajusta según la altura del banner */
+}
 .logo {
   height: 6em;
   padding: 1.5em;

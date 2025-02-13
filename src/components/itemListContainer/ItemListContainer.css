@@ -1,0 +1,23 @@
+.container {
+    width: 75%;
+    margin: 0 auto; /* Centra el contenedor en la página */
+    text-align: justify; /* Justifica el texto */
+}
+
+h1 {
+    font-family: "Arial", sans-serif;
+    font-weight: 300; /* Cuerpo liviano */
+    color: #002147; /* Azul oscuro */
+    text-align: center; /* Centra el título en el contenedor */
+}
+
+p {
+    font-family: "Acors", serif; /* Usa la tipografía Acors */
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.highlight {
+    color:cornflowerblue; /* Destaca el nombre de la tienda con un color llamativo */
+    font-weight: bold;
+}
