@@ -5,6 +5,5 @@
     left: 50%;
     transform: translateX(-50%); /* Centra la imagen horizontalmente */
     z-index: 1000; /* Asegura que quede por encima de otros elementos */
-
 }
 

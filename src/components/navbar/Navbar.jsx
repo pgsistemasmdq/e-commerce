@@ -1,21 +1,21 @@
-import React from "react";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import CartWidget from '../cartWidget/CartWidget.jsx'
+import Typography from '@mui/material/Typography';
+import CartWidget from '../cartWidget/CartWidget.jsx';
+import logoImg from '../../assets/img/isologoNew60px.png'
+import { useState } from 'react';
 
 const menuItems = [
-    { title: 'Despensa', options: ['Salsas', 'Condimentos'] },
-    { title: 'Frescos', options: ['Quesos', 'Embutidos', 'Verduras'] },
-    { title: 'Delikatessen', options: ['Chocolates', 'Conservas'] }
+    { title: 'Categorias', options: ['Despensa', 'Frescos', 'Delikatessen'] },
 ];
 
 const Navbar = () => {
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const [selectedMenu, setSelectedMenu] = React.useState(null);
+    const [anchorEl, setAnchorEl] = useState(null);
+    const [selectedMenu, setSelectedMenu] = useState(null);
 
     const handleMenuClick = (event, menuTitle) => {
         setAnchorEl(event.currentTarget);
@@ -26,13 +26,25 @@ const Navbar = () => {
         setAnchorEl(null);
         setSelectedMenu(null);
     };
-
-    return (
+     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static" sx={{ backgroundColor: '#B3E5FC' }}>
                 <Toolbar>
                     <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                        <img src="../../../img/isologoNew60px.png" alt="Logo" style={{ height: 40, marginRight: 2 }} />
+                        <img src={logoImg} alt="Logo" style={{ height: 40, marginRight: 10 }} />
+                        <Typography
+                            variant="h6"
+                            sx={{
+                                fontFamily: '"Bonheur Royale", cursive',
+                                color: '#001F3F',
+                                fontWeight: 'bold',
+                                fontSize: '2rem',
+                                marginRight: 4,
+                                marginLeft: 4
+                            }}
+                        >
+                            Alimentos Gourmet
+                        </Typography>
                         {menuItems.map((menu) => (
                             <Box key={menu.title}>
                                 <Button sx={{ color: '#001F3F' }} onClick={(event) => handleMenuClick(event, menu.title)}>
@@ -57,4 +69,5 @@ const Navbar = () => {
         </Box>
     );
 }
-export default Navbar
+
+export default Navbar;
