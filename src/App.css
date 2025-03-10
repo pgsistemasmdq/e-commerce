@@ -1,12 +1,23 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Asegura que el tamaño de los elementos no se vea afectado por los bordes y rellenos */
+}
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
-body {
-  padding-top: 0px; /* Ajusta según la altura del banner */
+
+html, body {
+  height: 100%; /* Asegura que el cuerpo ocupe todo el alto de la ventana */
+  width: 100%; /* Asegura que el cuerpo ocupe todo el ancho de la ventana */
 }
+
+/*
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -42,3 +53,4 @@ body {
 .read-the-docs {
   color: #888;
 }
+*/

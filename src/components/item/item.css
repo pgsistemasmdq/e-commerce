@@ -1,0 +1,129 @@
+/* card.css */
+
+/* Estilo principal de la card */
+.card {
+  background: #e3f2fd; /* Color de fondo suave */
+  border-radius: 16px; /* Bordes redondeados */
+  padding: 20px; /* Espaciado interno */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  text-align: center; /* Centra el contenido */
+  display: flex; /* Usa flexbox */
+  flex-direction: column; /* Coloca los elementos en columna */
+  justify-content: space-between; /* Distribuye los elementos uniformemente */
+  height: auto; /* Altura ajustable */
+  max-width: 400px; /* Máximo ancho para las cards */
+  margin: 20px auto; /* Centra la card y agrega margen */
+  transition: transform 0.3s ease; /* Suaviza la animación */
+}
+
+/* Efecto hover para la card */
+.card:hover {
+  transform: translateY(-5px); /* Efecto de elevación */
+}
+
+/* Imagen del producto */
+.card-image {
+  width: 100%; /* Ocupa el ancho completo */
+  height: auto; /* Ajusta la altura automáticamente */
+  max-height: 250px; /* Limita la altura en pantallas grandes */
+  object-fit: cover; /* Mantiene la proporción sin deformar */
+  border-radius: 12px; /* Bordes redondeados */
+  margin-bottom: 15px; /* Espacio entre la imagen y el contenido */
+}
+
+/* Título del producto */
+.card-title {
+  font-size: 1.5rem; /* Tamaño del texto adaptativo */
+  margin-bottom: 5px; /* Menos espacio debajo del título */
+  font-weight: bold; /* Texto en negrita */
+  color: #0d47a1; /* Azul oscuro */
+  margin-bottom: 10px; /* Espacio después del título */
+  line-height: 1.4; /* Altura de línea */
+  overflow: hidden; /* Oculta el exceso de contenido */
+  text-overflow: ellipsis; /* Agrega puntos suspensivos */
+  white-space: nowrap; /* Mantiene todo en una línea */
+}
+.card-category {
+  font-size: 0.9rem; /* Más pequeño que el título */
+  color: #607d8b; /* Gris azulado para diferenciar */
+  margin-top: -5px; /* Ajusta el espacio superior */
+  margin-bottom: 10px; /* Espacio entre la categoría y la imagen */
+}
+/* Descripción del producto */
+.card-description {
+  font-size: 1rem; /* Tamaño de fuente adaptable */
+  color: #1565c0; /* Azul más claro */
+  margin: 10px 0; /* Espacio alrededor */
+  max-height: 100px; /* Limita la altura de la descripción */
+  overflow: hidden; /* Oculta el contenido extra */
+  text-overflow: ellipsis; /* Agrega puntos suspensivos si es largo */
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Máximo 3 líneas visibles */
+  -webkit-box-orient: vertical; /* Alinea el contenido verticalmente */
+}
+
+/* Pie de la card: Stock y Precio */
+.card-footer {
+  display: flex; /* Usa flexbox */
+  flex-direction: column; /* Elementos en columna */
+  justify-content: flex-end; /* Empuja hacia abajo */
+  margin-top: auto; /* Se adhiere al fondo */
+  padding-top: 15px; /* Espaciado superior */
+  gap: 10px; /* Espacio entre los elementos */
+}
+
+/* Información del stock */
+.card-stock {
+  font-size: 1rem; /* Tamaño del texto */
+  color: #1e88e5; /* Azul intermedio */
+}
+
+/* Precio del producto */
+.card-price {
+  font-size: 1.5rem; /* Texto grande */
+  font-weight: bold; /* Texto en negrita */
+  color: #0d47a1; /* Azul oscuro */
+}
+
+/* Si la categoría es 3, el precio será rojo */
+.card-price.red-price {
+  color: red; /* Precio en rojo si es categoría 3 */
+}
+
+
+
+.detail-button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 15px;
+  background-color: #1e88e5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.detail-button:hover {
+  background-color: #1565c0;
+}
+
+/* 📱 Responsividad: Ajustes para pantallas pequeñas */
+@media (max-width: 600px) {
+  .card {
+    padding: 15px; /* Reduce el padding */
+    max-width: 90%; /* Ocupa el 90% del ancho */
+  }
+
+  .card-title {
+    font-size: 1.2rem; /* Reduce el tamaño del título */
+  }
+
+  .card-description {
+    font-size: 0.9rem; /* Reduce el tamaño del texto */
+  }
+
+  .card-price {
+    font-size: 1.2rem; /* Ajusta el tamaño del precio */
+  }
+}

@@ -8,9 +8,16 @@ import Typography from '@mui/material/Typography';
 import CartWidget from '../cartWidget/CartWidget.jsx';
 import logoImg from '../../assets/img/isologoNew60px.png'
 import { useState } from 'react';
-
+import { Link, NavLink } from "react-router-dom"
 const menuItems = [
+/*     
     { title: 'Categorias', options: ['Despensa', 'Frescos', 'Delikatessen'] },
+
+    CAMBIE LA OPCIONES DEL MENU PARA QUE COICIDA CON LAS CATEGORIAS DE LA API fakestoreapi.com
+ */
+    { title: 'Categorias', options: ["Electronics", "Jewelery", "Men's clothing", "Women's Clothing"] },
+
+
 ];
 
 const Navbar = () => {
@@ -26,12 +33,15 @@ const Navbar = () => {
         setAnchorEl(null);
         setSelectedMenu(null);
     };
-     return (
+    return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static" sx={{ backgroundColor: '#B3E5FC' }}>
                 <Toolbar>
                     <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                        <img src={logoImg} alt="Logo" style={{ height: 40, marginRight: 10 }} />
+                        <Link to='/'>
+                            <img src={logoImg} alt="Logo" style={{ height: 40, marginRight: 10 }} />
+                        </Link>
+
                         <Typography
                             variant="h6"
                             sx={{
@@ -43,7 +53,9 @@ const Navbar = () => {
                                 marginLeft: 4
                             }}
                         >
-                            Alimentos Gourmet
+                            <Link to='/'>
+                                Alimentos Gourmet
+                            </Link>
                         </Typography>
                         {menuItems.map((menu) => (
                             <Box key={menu.title}>
@@ -55,9 +67,13 @@ const Navbar = () => {
                                     open={Boolean(anchorEl) && selectedMenu === menu.title}
                                     onClose={handleClose}
                                 >
+
                                     {menu.options.map((option) => (
-                                        <MenuItem key={option} onClick={handleClose}>{option}</MenuItem>
+                                        <NavLink key={option} to={`/category/${option.toLowerCase()}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                                            <MenuItem onClick={handleClose}>{option}</MenuItem>
+                                        </NavLink>
                                     ))}
+
                                 </Menu>
                             </Box>
                         ))}

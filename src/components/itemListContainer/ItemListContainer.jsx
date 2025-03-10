@@ -1,14 +1,34 @@
-import "./ItemListContainer.css";
 
-const ItemListContainer = ({ greeting, parrafo1, parrafo2 }) => {
-    return (
-        <div className="container">
-            <h1>{greeting}</h1>
-            <p>{parrafo1}</p>
-            <p>{parrafo2}</p>
-            
-        </div>
-    );
-}
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import ItemList from "../itemList/ItemList";
+import Loader from "../Loader/Loader";
+
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const ItemListContainer = () => {
+  const [productos, setProductos] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const { category } = useParams();
+
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products")
+      .then((response) => response.json())
+      .then((data) => {
+        setProductos(data);
+      })
+      .catch((error) => {
+        toast.error("Error al cargar los producto 😢", {
+          position: "bottom-right",
+        });
+      })
+      .finally(() => setLoading(false));
+  }, []);
+
+  if (loading) return  <Loader />;
+
+  return <ItemList productos={productos} category={category} />;
+};
 
 export default ItemListContainer;

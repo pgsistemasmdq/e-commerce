@@ -1,9 +1,17 @@
-.banner {
-    height: auto; /* Mantiene la relación de aspecto */
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%); /* Centra la imagen horizontalmente */
-    z-index: 1000; /* Asegura que quede por encima de otros elementos */
-}
-
+.banner-container {
+    width: 100%; /* El contenedor ocupa todo el ancho disponible */
+    height: auto; /* La altura se ajustará automáticamente */
+    margin: 0; /* El contenedor comienza en el borde superior sin margen */
+    padding: 0; /* Sin padding extra */
+    display: flex; /* Usamos flex para centrar la imagen */
+    justify-content: center; /* Centra la imagen horizontalmente */
+    align-items: center; /* Centra la imagen verticalmente */
+  }
+  
+  .banner {
+    max-width: 100%; /* La imagen puede escalarse al 100% del ancho */
+    max-height: 100%; /* La imagen no debe exceder el tamaño del contenedor */
+    width: auto; /* Mantiene la proporción original de la imagen */
+    transform: scale(0.8); /* Escala la imagen al 80% de su tamaño original */
+    object-fit: contain; /* La imagen se ajusta dentro del contenedor sin deformarse */
+  }
