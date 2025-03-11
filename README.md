@@ -31,8 +31,11 @@ A continuación, una descripción detallada de cada uno:
 
 🏞️ a) banner/
   Archivos: Banner.jsx y Banner.css
+  
   Función: Muestra una imagen o sección destacada (generalmente en la parte superior del sitio).
+  
   Uso esperado: Se renderiza en la página principal para mostrar una oferta o promoción destacada.
+  
 
 🛒 b) cartWidget/
   Archivos: CartWidget.jsx
