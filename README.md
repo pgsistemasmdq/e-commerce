@@ -1,21 +1,21 @@
 # e-commerce
 
 📊 1. Estructura General de los Componentes
+
 En la carpeta src/components se encuentran los siguientes subcomponentes:
 
-Copiar
-Editar
 components/
-├── banner/
-├── cartWidget/
-├── item/
-├── itemCount/
-├── ItemDetail/
-├── ItemDetailContainer/
-├── itemList/
-├── itemListContainer/
-├── Loader/
-└── navbar/
+  ├── banner/
+  ├── cartWidget/
+  ├── item/
+  ├── itemCount/
+  ├── ItemDetail/
+  ├── ItemDetailContainer/
+  ├── itemList/
+  ├── itemListContainer/
+  ├── Loader/
+  └── navbar/
+
 📦 2. Desglose de los Componentes
 A continuación, una descripción detallada de cada uno:
 
