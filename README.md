@@ -6,25 +6,25 @@ En la carpeta src/components se encuentran los siguientes subcomponentes:
 
 components/
   
-  ├── banner/
+      ├── banner/
   
-  ├── cartWidget/
+      ├── cartWidget/
   
-  ├── item/
+      ├── item/
   
-  ├── itemCount/
+      ├── itemCount/
   
-  ├── ItemDetail/
+      ├── ItemDetail/
   
-  ├── ItemDetailContainer/
+      ├── ItemDetailContainer/
   
-  ├── itemList/
+      ├── itemList/
   
-  ├── itemListContainer/
+      ├── itemListContainer/
   
-  ├── Loader/
+      ├── Loader/
   
-  └── navbar/
+      └── navbar/
 
 📦 2. Desglose de los Componentes
 A continuación, una descripción detallada de cada uno:
