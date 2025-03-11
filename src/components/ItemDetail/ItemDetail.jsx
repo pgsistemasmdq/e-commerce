@@ -1,6 +1,6 @@
 import "./ItemDetail.css";
 import Item from "../item/item.jsx";
-//import useCounter from "../../customHooks/useCount.jsx";
+import useCounter from "../../customHooks/useCount.jsx";
 import ItemCount from "../itemCount/ItemCount.jsx";
 import { useState } from "react";
 
@@ -11,8 +11,6 @@ import "react-toastify/dist/ReactToastify.css";
 // HOC: Higher Order Component
 const hocItemDetail = (ComponenteOriginal) => {
   return ({ producto, actualizarCarrito, mostrarBoton }) => {
-    console.log("PASO POR ACA");
-
     const maxStock = producto.stock < 10 ? producto.stock : 10; // Máximo 10 o el stock real
     const { contador, aumentar, decrementar } = useCounter(1, maxStock);
 
@@ -61,13 +59,7 @@ const hocItemDetail = (ComponenteOriginal) => {
           maxStock={producto.stock < 10 ? producto.stock : 10}
           onAddToCart={handleAddToCart}
         />
-        {/* Controles de cantidad */}
-        <div className="item-detail-actions">
-          <button onClick={decrementar}>-</button>
-          <input type="number" value={contador} readOnly />
-          <button onClick={aumentar}>+</button>
-          <button onClick={handleAddToCart}>Agregar al carrito</button>
-        </div>
+
 
       </div>
     );
