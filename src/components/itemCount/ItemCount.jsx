@@ -1,4 +1,5 @@
 import "./ItemCount.css";
+
 import useCounter from "../../customHooks/useCount.jsx";
 
 const ItemCount = ({ maxStock, onAddToCart }) => {

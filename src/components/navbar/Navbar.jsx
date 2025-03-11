@@ -17,7 +17,6 @@ const menuItems = [
  */
     { title: 'Categorias', options: ["Electronics", "Jewelery", "Men's clothing", "Women's Clothing"] },
 
-
 ];
 
 const Navbar = () => {

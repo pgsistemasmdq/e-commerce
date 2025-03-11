@@ -26,7 +26,6 @@ const ItemDetailContainer = () => {
         .finally(() => setLoading(false));
     }
   }, [id]);
-
   if (loading) return  <Loader />;
   if (!producto) return null;
 

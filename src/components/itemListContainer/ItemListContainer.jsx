@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemList from "../itemList/ItemList";
 import Loader from "../Loader/Loader";
-
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
