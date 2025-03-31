@@ -1,5 +1,5 @@
 
-import "./Item.css";
+import "./item.css";
 import { useNavigate } from "react-router-dom";
 
 const Item = ({ producto, mostrarBoton }) => {

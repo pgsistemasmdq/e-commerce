@@ -1,6 +1,6 @@
 
 import Item from "../item/item.jsx";
-import "./ItemList.css";
+import "./itemList.css";
 
 const ItemList = ({ productos, category }) => {
   const categoryNormalized = category?.toLowerCase();

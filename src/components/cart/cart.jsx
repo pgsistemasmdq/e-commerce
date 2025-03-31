@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useCart } from "../../context/CartContext";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "./Cart.css";
+import "./cart.css";
 import { collection, addDoc } from "firebase/firestore"; 
 import { db } from '../../firebase/client';
 
