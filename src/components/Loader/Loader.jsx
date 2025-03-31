@@ -1,12 +1,17 @@
+
+import { CircularProgress } from "@mui/material";
 import "./Loader.css";
 
-const Loader = () => {
+const Loader = ({ loading }) => {
+    if (!loading) return null;
+
     return (
         <div className="loader-container">
-            <div className="spinner"></div>
-            <p>Cargando producto...</p>
+            <CircularProgress />
+            <p>Loading...</p>
         </div>
     );
 };
 
 export default Loader;
+

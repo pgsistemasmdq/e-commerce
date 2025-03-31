@@ -1,5 +1,5 @@
 /* Estilo para los controles de cantidad y agregar al carrito */
-.item-detail-actions {
+.item-detail-actions2 {
     display: flex;
     justify-content: space-around;
     gap: 10px;
@@ -12,7 +12,7 @@
   }
   
   
-  .item-detail-actions button {
+  .item-detail-actions2 button {
     padding: 10px 15px;
     background-color: #0d47a1;
     color: white;
@@ -23,11 +23,11 @@
     transition: background-color 0.3s ease;
   }
   
-  .item-detail-actions button:hover {
+  .item-detail-actions2 button:hover {
     background-color: #1976d2;
   }
   
-  .item-detail-actions input {
+  .item-detail-actions2 input {
     width: 50px;
     padding: 5px;
     text-align: center;
@@ -36,3 +36,61 @@
     border-radius: 5px;
     background-color: #fafafa;
   }
+
+
+  .item-detail-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    width: 100%;
+    max-width: 320px; /* Limita el ancho para mejor estructura */
+    margin: 0 auto; /* Centra horizontalmente */
+    flex-wrap: wrap; /* Permite que se ajuste en pantallas pequeñas */
+  }
+  
+  .item-detail-actions button {
+    padding: 8px 12px;
+    background-color: #0d47a1;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, transform 0.1s ease-in-out;
+    min-width: 40px;
+  }
+  
+  .item-detail-actions button:hover {
+    background-color: #1976d2;
+    transform: scale(1.05);
+  }
+  
+  .item-detail-actions input {
+    width: 50px;
+    padding: 6px;
+    text-align: center;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
+  /* Diseño responsivo */
+  @media (max-width: 480px) {
+    .item-detail-actions {
+      flex-direction: column;
+      gap: 6px;
+      max-width: 90%;
+    }
+  
+    .item-detail-actions button {
+      width: 100%;
+      min-width: unset;
+    }
+  }
+  

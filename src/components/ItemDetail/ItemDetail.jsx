@@ -1,46 +1,51 @@
 import "./ItemDetail.css";
 import Item from "../item/item.jsx";
-import useCounter from "../../customHooks/useCount.jsx";
 import ItemCount from "../itemCount/ItemCount.jsx";
-import { useState } from "react";
-
-
-// ✅ Importar toast
+import { useCart } from "../../context/CartContext.jsx";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom"; // 🔹 Para redirigir a /cart
 
-// HOC: Higher Order Component
 const hocItemDetail = (ComponenteOriginal) => {
-  return ({ producto, actualizarCarrito, mostrarBoton }) => {
-    const maxStock = producto.stock < 10 ? producto.stock : 10; // Máximo 10 o el stock real
-    const { contador, aumentar, decrementar } = useCounter(1, maxStock);
+  return ({ producto, mostrarBoton }) => {
+    const { addItem } = useCart();
+    const navigate = useNavigate(); // 🔹 Hook de navegación
+    const [addedToCart, setAddedToCart] = useState(false); // 🔹 Estado para cambiar botones
 
-    const [mensaje, setMensaje] = useState("");
+    const handleAddToCart = (cantidad) => {
+      addItem(
+        {
+          id: producto.id,
+          name: producto.title,
+          image: producto.image,
+          price: producto.price,
+          description: producto.description,
+          stock: producto.stock,
+        },
+        cantidad
+      );
 
-    const handleAddToCart = () => {
-      actualizarCarrito(contador);
+      setAddedToCart(true); // 🔹 Cambia el estado al agregar
 
-      // Toast personalizado
-      toast(`${producto.title} se agregó al carrito 🛒`, {
-        position: "bottom-right",       // Abajo a la derecha
-        autoClose: 2000,                // Se cierra en 2 segundos
-        hideProgressBar: false,         // Muestra la barra de progreso
-        closeOnClick: true,             // Cierra al hacer clic
-        pauseOnHover: true,             // Pausa al pasar el mouse
-        draggable: true,                // Es arrastrable
-        theme: "dark",                  // Tema oscuro
+      toast(`${producto.title} x${cantidad} se agregó al carrito 🛒`, {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "dark",
         style: {
-          backgroundColor: "#4CAF50",   // 🎨 Fondo verde (personalizado)
-          color: "#fff",                // Color de texto blanco
-          fontSize: "0.8rem",           // 🔍 Texto más pequeño
-          borderRadius: "10px",         // Bordes redondeados
+          backgroundColor: "#4CAF50",
+          color: "#fff",
+          fontSize: "0.8rem",
+          borderRadius: "10px",
         },
       });
-
-
     };
 
-    const precioFormateado = producto.price.toFixed(2);
+    const precioFormateado = producto.price ? producto.price.toFixed(2) : "0.00";
 
     return (
       <div className="item-detail">
@@ -55,18 +60,18 @@ const hocItemDetail = (ComponenteOriginal) => {
           <p className="card-price">$ {precioFormateado}</p>
         </div>
 
-        {/* AtemCount con el custom hook */}
-        <ItemCount
-          maxStock={producto.stock < 10 ? producto.stock : 10}
-          onAddToCart={handleAddToCart}
-        />
-
-
+        {/* 🔹 Condición para mostrar el botón adecuado */}
+        {addedToCart ? (
+          <button className="finish-button" onClick={() => navigate("/cart")}>
+            Finalizar compra
+          </button>
+        ) : (
+          <ItemCount maxStock={producto.stock < 10 ? producto.stock : 10} onAddToCart={handleAddToCart} />
+        )}
       </div>
     );
   };
 };
 
-// Crear el componente detallado con el HOC
 const ItemDetail = hocItemDetail(Item);
 export default ItemDetail;

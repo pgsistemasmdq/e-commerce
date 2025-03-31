@@ -10,12 +10,8 @@ import logoImg from '../../assets/img/isologoNew60px.png'
 import { useState } from 'react';
 import { Link, NavLink } from "react-router-dom"
 const menuItems = [
-/*     
-    { title: 'Categorias', options: ['Despensa', 'Frescos', 'Delikatessen'] },
 
-    CAMBIE LA OPCIONES DEL MENU PARA QUE COICIDA CON LAS CATEGORIAS DE LA API fakestoreapi.com
- */
-    { title: 'Categorias', options: ["Electronics", "Jewelery", "Men's clothing", "Women's Clothing"] },
+    { title: 'Categorias', options: ["Despensa", "Frescos", "Delikatessen", "Bebidas"] },
 
 ];
 
@@ -68,7 +64,7 @@ const Navbar = () => {
                                 >
 
                                     {menu.options.map((option) => (
-                                        <NavLink key={option} to={`/category/${option.toLowerCase()}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                                        <NavLink key={option} to={`/category/${option}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                                             <MenuItem onClick={handleClose}>{option}</MenuItem>
                                         </NavLink>
                                     ))}

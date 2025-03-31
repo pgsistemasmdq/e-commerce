@@ -1,10 +1,10 @@
-
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemList from "../itemList/ItemList";
 import Loader from "../Loader/Loader";
-import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { getDocs, collection, query, where, orderBy } from "firebase/firestore"; 
+import { db } from '../../firebase/client';
 
 const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
@@ -12,22 +12,30 @@ const ItemListContainer = () => {
   const { category } = useParams();
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((response) => response.json())
+    setLoading(true);
+     const productsRef = category
+      ? query(collection(db, "products"), where("categoryId", "==", category))
+      : query(collection(db, "products"), orderBy("categoryId"));
+
+    getDocs(productsRef)
       .then((data) => {
-        setProductos(data);
+        const dataFiltrada = data.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id
+        }));
+        setProductos(dataFiltrada);
       })
       .catch((error) => {
-        toast.error("Error al cargar los producto 😢", {
-          position: "bottom-right",
-        });
+        console.error("Error al obtener productos:", error);
       })
-      .finally(() => setLoading(false));
-  }, []);
+      .finally(() => {
+        setLoading(false);
+      });
+  }, [category]); 
 
-  if (loading) return  <Loader />;
+  if (loading) return <Loader loading={loading} />;
 
-  return <ItemList productos={productos} category={category} />;
+  return <ItemList productos={productos} />;
 };
 
 export default ItemListContainer;

@@ -15,13 +15,11 @@ const Item = ({ producto, mostrarBoton }) => {
       <h2 className="card-title">{producto.title}</h2>
 
       {/* Categoría del producto */}
-      <p className="card-category">{producto.category}</p>
+      <p className="card-category">{producto.categoryId}</p>
 
-      <img
-        src={producto.image}
-        alt={producto.title}
-        className="card-image"
-      />
+      {producto.image && (
+        <img src={producto.image} alt={producto.title} className="card-image" />
+      )}
 
       {/* Botón "Ver Detalle" */}
       {mostrarBoton && (
