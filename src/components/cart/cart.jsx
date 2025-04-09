@@ -3,7 +3,7 @@ import { useCart } from "../../context/CartContext";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./cart.css";
-import { collection, addDoc } from "firebase/firestore"; 
+import { collection, addDoc } from "firebase/firestore";
 import { db } from '../../firebase/client';
 
 export const Cart = () => {
@@ -12,7 +12,7 @@ export const Cart = () => {
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
   useEffect(() => {
-    // Habilita el botón solo si todos los campos tienen contenido
+    // Habilita el botón solo si todos los campos tienen algo
     setIsButtonDisabled(!(buyer.name.trim() && buyer.phone.trim() && buyer.email.trim()));
   }, [buyer]);
 
@@ -24,7 +24,7 @@ export const Cart = () => {
   };
 
   const handleCheckout = async () => {
-    saveBuyerInfo(buyer); // Guardar datos en el contexto
+    saveBuyerInfo(buyer);
 
     const compra = {
       buyer: { ...buyer },
@@ -113,7 +113,8 @@ export const Cart = () => {
             <h3>📋 Completa tus datos antes de finalizar tu compra</h3>
             <label>
               Nombre:
-              <input type="text" name="name" value={buyer.name} onChange={handleChange} required />
+              <input type="text" name="name" value={buyer.name} onChange={handleChange} required /> 
+    
             </label>
             <label>
               Teléfono:

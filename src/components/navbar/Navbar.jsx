@@ -9,6 +9,8 @@ import CartWidget from '../cartWidget/CartWidget.jsx';
 import logoImg from '../../assets/img/isologoNew60px.png'
 import { useState } from 'react';
 import { Link, NavLink } from "react-router-dom"
+import "./navbar.css";
+
 const menuItems = [
 
     { title: 'Categorias', options: ["Despensa", "Frescos", "Delikatessen", "Bebidas"] },

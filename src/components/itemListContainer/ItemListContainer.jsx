@@ -5,7 +5,7 @@ import Loader from "../Loader/Loader";
 import "react-toastify/dist/ReactToastify.css";
 import { getDocs, collection, query, where, orderBy } from "firebase/firestore"; 
 import { db } from '../../firebase/client';
-
+import "./ItemListContainer.css";
 const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
   const [loading, setLoading] = useState(true);
