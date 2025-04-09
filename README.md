@@ -94,7 +94,7 @@ A continuación, una descripción detallada de cada uno:
   ItemListContainer obtiene productos y los pasa a ItemList, que los muestra como Item.
   Al seleccionar un producto, ItemDetailContainer obtiene el detalle y lo muestra en ItemDetail.
   CartWidget actualiza el estado del carrito y muestra la cantidad de productos seleccionados.
-  Luego en cart muestra un resumen e la compra y permite finalizarla
+  Luego en Cart muestra un resumen e la compra y permite finalizarla
 
 
 📌 3. Flujo de la Aplicación
