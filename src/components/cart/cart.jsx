@@ -24,8 +24,49 @@ export const Cart = () => {
   };
 
   const handleCheckout = async () => {
-    saveBuyerInfo(buyer);
+    // Validación manual
+    if (!buyer.name.trim()) {
+      toast.warning("⚠️ Ingresá tu nombre.", {
+        position: "bottom-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "light",
+      });
+      document.querySelector('input[name="name"]').focus();
+      return;
+    }
+    if (!buyer.phone.trim()) {
+      toast.warning("⚠️ Ingresá tu teléfono.", {
+        position: "bottom-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "light",
+      });
+      document.querySelector('input[name="phone"]').focus();
+      return;
+    }
+    if (!buyer.email.trim()) {
+      toast.warning("⚠️ Ingresá tu email.",{
+        position: "bottom-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "light",
+      });
+      document.querySelector('input[name="email"]').focus();
+      return;
+    }
 
+    saveBuyerInfo(buyer);
+  
     const compra = {
       buyer: { ...buyer },
       items: cart.map(item => ({
@@ -36,12 +77,12 @@ export const Cart = () => {
       })),
       total: totalDinero
     };
-
+  
     try {
       const orderCollection = collection(db, "orders");
       const docRef = await addDoc(orderCollection, compra);
       console.log("ID de la orden:", docRef.id);
-
+  
       toast.success(`✅ Compra confirmada. Nro de Orden: ${docRef.id}`, {
         position: "bottom-center",
         autoClose: 5000,
@@ -51,7 +92,7 @@ export const Cart = () => {
         draggable: true,
         theme: "light",
       });
-
+  
       clear(); // Vaciar carrito después de la compra
     } catch (error) {
       toast.error("❌ Hubo un error al procesar la compra. Inténtalo nuevamente.", {
@@ -65,7 +106,7 @@ export const Cart = () => {
       });
     }
   };
-
+  
   return (
     <div className="container">
       <h2 className="cart-title">🛒 Carrito de Compras</h2>
@@ -128,7 +169,7 @@ export const Cart = () => {
 
           <div className="cart-actions">
             <button onClick={clear} className="clear-cart">🗑️ Vaciar carrito</button>
-            <button onClick={handleCheckout} className="checkout-btn" disabled={isButtonDisabled}>
+            <button onClick={handleCheckout} className="checkout-btn">
               🛒 Finalizar Compra
             </button>
           </div>
